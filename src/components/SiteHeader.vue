@@ -12,19 +12,10 @@ const close = () => (open.value = false)
 
     <nav class="desktop-nav" aria-label="Primary navigation">
       <RouterLink to="/">Home</RouterLink>
-      <RouterLink to="/#about">About</RouterLink>
       <RouterLink to="/#projects">Projects</RouterLink>
       <RouterLink to="/#tools">Tools</RouterLink>
       <RouterLink to="/#contact">Contact</RouterLink>
     </nav>
-
-<a
-  href="/Oladunni-Waters-CV.pdf"
-  download="Oladunni-Waters-CV.pdf"
-  class="button button-small desktop-cv"
->
-  Download CV
-</a>
 
     <button class="menu-button" type="button" aria-label="Toggle navigation" @click="open = !open">
       <X v-if="open" :size="20" />
@@ -33,11 +24,9 @@ const close = () => (open.value = false)
 
     <nav v-if="open" class="mobile-nav" aria-label="Mobile navigation">
       <RouterLink to="/" @click="close">Home</RouterLink>
-      <RouterLink to="/#about" @click="close">About</RouterLink>
       <RouterLink to="/#projects" @click="close">Projects</RouterLink>
       <RouterLink to="/#tools" @click="close">Tools</RouterLink>
       <RouterLink to="/#contact" @click="close">Contact</RouterLink>
-      <a class="button" href="/Oladunni-Waters-CV.pdf" download="Oladunni-Waters-CV.pdf" @click="close">Download CV</a>
     </nav>
   </header>
 </template>

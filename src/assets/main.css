@@ -35,7 +35,7 @@ img { max-width: 100%; display: block; }
   min-height: 74px;
   padding: 0 30px;
   display: grid;
-  grid-template-columns: 1fr auto auto;
+  grid-template-columns: 1fr auto;
   align-items: center;
   gap: 30px;
   position: sticky;
@@ -123,19 +123,20 @@ p { line-height: 1.7; }
 
 .how-work {
   min-height: 205px;
-  padding: 37px 47px;
+  padding: 37px 43px;
   display: grid;
-  grid-template-columns: 1.08fr 2fr;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 2fr);
+  align-items: center;
   gap: 35px;
   background: linear-gradient(100deg, #647160, #59675c);
   color: #fff;
 }
 .how-work-intro > p:last-child { max-width: 390px; margin: 0; color: rgba(255,255,255,.75); font-size: .74rem; }
-.steps-row { display: grid; grid-template-columns: repeat(9, auto); align-items: center; justify-content: space-between; gap: 8px; }
-.work-step { width: 106px; display: grid; justify-items: center; gap: 7px; text-align: center; }
+.steps-row { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr) 17px) minmax(0, 1fr); align-items: start; gap: 8px; }
+.work-step { min-width: 0; display: grid; grid-template-rows: 27px auto 1fr; justify-items: center; gap: 7px; text-align: center; }
 .work-step strong { font-size: .69rem; }
 .work-step span { color: rgba(255,255,255,.68); font-size: .59rem; line-height: 1.5; }
-.step-arrow { color: rgba(255,255,255,.52); }
+.step-arrow { margin-top: 32px; color: rgba(255,255,255,.52); }
 
 .projects-section { padding: 46px 43px 52px; }
 .section-heading { margin-bottom: 24px; display: flex; align-items: end; justify-content: space-between; gap: 25px; }
@@ -152,9 +153,9 @@ p { line-height: 1.7; }
 .project-title-link:hover h3 { color: var(--rust-dark); }
 
 .tools-band { padding: 18px 40px; display: flex; align-items: center; justify-content: space-between; gap: 24px; background: #efe9df; border-top: 1px solid var(--line); }
-.tools-band > strong { font-family: Georgia, serif; font-weight: 500; font-size: .9rem; }
+.tools-band > strong { font-family: Georgia, serif; font-weight: 700; font-size: .9rem; }
 .tools-list { display: flex; flex-wrap: wrap; justify-content: flex-end; gap: 9px 16px; }
-.tools-list span { display: inline-flex; align-items: center; gap: 5px; color: var(--muted); font-size: .65rem; }
+.tools-list span { display: inline-flex; align-items: center; gap: 5px; color: var(--muted); font-size: .65rem; font-weight: 700; }
 
 .contact-cta { min-height: 205px; display: grid; grid-template-columns: 58% 42%; background: #756f5d; overflow: hidden; }
 .contact-copy { padding: 38px 45px; color: #fff; z-index: 1; }
@@ -234,15 +235,13 @@ p { line-height: 1.7; }
 .project-card-compact .project-link { font-size: .58rem; }
 
 @media (max-width: 900px) {
-  .site-header { grid-template-columns: 1fr auto; }
-  .desktop-nav, .desktop-cv { display: none; }
+  .desktop-nav { display: none; }
   .menu-button { display: grid; place-items: center; }
   .mobile-nav { position: absolute; left: 0; right: 0; top: 100%; padding: 18px 24px 24px; display: grid; gap: 13px; background: var(--paper); border-bottom: 1px solid var(--line); box-shadow: 0 12px 30px rgba(50,45,38,.08); font-size: .78rem; }
   .hero-section { grid-template-columns: 1fr 1fr; }
   .hero-copy { padding: 48px 31px 38px; }
   .expertise-row { padding-inline: 24px; }
   .how-work { grid-template-columns: 1fr; }
-  .steps-row { overflow-x: auto; padding-bottom: 8px; }
   .project-grid { grid-template-columns: repeat(2, 1fr); }
   .project-hero-grid { grid-template-columns: 1fr; gap: 28px; }
   .challenge-solution, .project-facts { grid-template-columns: 1fr; }
@@ -259,8 +258,12 @@ p { line-height: 1.7; }
   .hero-copy { padding: 42px 22px 34px; }
   .hero-image-wrap { min-height: 330px; }
   .expertise-row { grid-template-columns: repeat(2, 1fr); padding: 23px 18px; }
-  .how-work { padding: 34px 22px; }
-  .steps-row { grid-template-columns: repeat(9, auto); justify-content: start; }
+  .how-work { padding: 34px 20px; gap: 26px; }
+  .steps-row { grid-template-columns: 1fr; gap: 20px; }
+  .work-step { grid-template-columns: 27px minmax(0, 1fr); grid-template-rows: auto auto; justify-items: start; gap: 4px 14px; text-align: left; }
+  .work-step > svg { grid-row: 1 / 3; align-self: center; }
+  .work-step > span { grid-column: 2; }
+  .step-arrow { display: none; }
   .projects-section, .section-pad { padding-left: 20px; padding-right: 20px; }
   .project-grid { grid-template-columns: 1fr; }
   .section-heading { align-items: flex-start; flex-direction: column; }
