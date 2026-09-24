@@ -18,7 +18,13 @@ const close = () => (open.value = false)
       <RouterLink to="/#contact">Contact</RouterLink>
     </nav>
 
-    <RouterLink class="button button-small desktop-cv" to="/#contact">View CV</RouterLink>
+<a
+  href="/Oladunni-Waters-CV.pdf"
+  download="Oladunni-Waters-CV.pdf"
+  class="button button-small desktop-cv"
+>
+  Download CV
+</a>
 
     <button class="menu-button" type="button" aria-label="Toggle navigation" @click="open = !open">
       <X v-if="open" :size="20" />
@@ -31,7 +37,7 @@ const close = () => (open.value = false)
       <RouterLink to="/#projects" @click="close">Projects</RouterLink>
       <RouterLink to="/#tools" @click="close">Tools</RouterLink>
       <RouterLink to="/#contact" @click="close">Contact</RouterLink>
-      <RouterLink class="button" to="/#contact" @click="close">View CV</RouterLink>
+      <a class="button" href="/Oladunni-Waters-CV.pdf" download="Oladunni-Waters-CV.pdf" @click="close">Download CV</a>
     </nav>
   </header>
 </template>
